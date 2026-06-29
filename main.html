@@ -1,0 +1,677 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wholesale Vault | Choice Floors &amp; Stairways</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-background": "#181c1d",
+                  "on-tertiary-fixed": "#001d35",
+                  "secondary": "#7b5800",
+                  "accent-gold": "#FFC857",
+                  "action-blue": "#0170B9",
+                  "on-primary": "#ffffff",
+                  "on-primary-fixed": "#001e2d",
+                  "error-container": "#ffdad6",
+                  "surface-dim": "#d7dadb",
+                  "surface-variant": "#e0e3e4",
+                  "on-error-container": "#93000a",
+                  "tertiary": "#001a31",
+                  "surface-gray": "#F4F7F8",
+                  "surface": "#f7fafb",
+                  "secondary-fixed": "#ffdea4",
+                  "primary-fixed-dim": "#a9cbe3",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-container": "#4a99e5",
+                  "border-subtle": "#D1D9DD",
+                  "primary-fixed": "#c6e7ff",
+                  "secondary-container": "#fdc656",
+                  "on-surface": "#181c1d",
+                  "on-secondary-container": "#735200",
+                  "on-secondary-fixed": "#261900",
+                  "secondary-fixed-dim": "#f4be4e",
+                  "primary": "#001b29",
+                  "background": "#f7fafb",
+                  "tertiary-container": "#002f52",
+                  "vault-navy": "#0A3144",
+                  "surface-tint": "#416277",
+                  "outline-variant": "#c2c7cc",
+                  "error": "#ba1a1a",
+                  "on-tertiary": "#ffffff",
+                  "surface-container": "#ebeeef",
+                  "text-main": "#1A2024",
+                  "surface-container-highest": "#e0e3e4",
+                  "on-secondary-fixed-variant": "#5d4200",
+                  "inverse-primary": "#a9cbe3",
+                  "surface-container-low": "#f1f4f5",
+                  "surface-bright": "#f7fafb",
+                  "outline": "#72787d",
+                  "surface-container-high": "#e5e9ea",
+                  "on-primary-container": "#7899b0",
+                  "on-primary-fixed-variant": "#284a5e",
+                  "inverse-surface": "#2d3132",
+                  "on-secondary": "#ffffff",
+                  "inverse-on-surface": "#eef1f2",
+                  "primary-container": "#0a3144",
+                  "on-tertiary-fixed-variant": "#00497c",
+                  "tertiary-fixed-dim": "#9dcaff",
+                  "on-error": "#ffffff",
+                  "tertiary-fixed": "#d1e4ff",
+                  "on-surface-variant": "#42474c"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "stack-sm": "8px",
+                  "stack-lg": "24px",
+                  "stack-md": "16px",
+                  "margin-mobile": "16px",
+                  "unit": "4px",
+                  "margin-desktop": "32px",
+                  "gutter": "16px"
+          },
+          "fontFamily": {
+                  "button-text": ["Hanken Grotesk"],
+                  "label-code": ["JetBrains Mono"],
+                  "headline-md": ["Hanken Grotesk"],
+                  "body-lg": ["Hanken Grotesk"],
+                  "headline-lg-mobile": ["Hanken Grotesk"],
+                  "body-sm": ["Hanken Grotesk"],
+                  "headline-lg": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+                  "button-text": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "label-code": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Transition for sidebar and content */
+    #sidebar-filter {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #product-grid-container {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sidebar-collapsed {
+      width: 0 !important;
+      margin-right: 0 !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    /* Responsive Navigation Styles */
+    #mobile-drawer-overlay {
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #mobile-drawer {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-100%);
+    }
+    #mobile-drawer.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg text-body-lg" style="overflow: hidden;">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-low text-on-surface shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center px-margin-mobile h-16 max-w-7xl mx-auto">
+<div class="flex items-center gap-stack-md">
+
+<img alt="Wholesale Vault Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yWD5pzJe83HB1Ruke7OAMtcQmUhfUwDieNKQQONLCFh1J7fv0ROD_8SGOyvy1MOo1JJD79_7hYTygXhBaQNpO1xQuI5srs17YOgt5lmLVBwYqm54KxQlm_CBM_Z07t78Ulw8CU8YalqbSZmGd4D4YxUiqFxusQ9ATPApyIu3rz477bFrol2UO65tVB18_rg1iTsVvIVwgQ7KpH6Yw7NTZjoGpE-QM7wijLQyD7GrW2U15Nm4ku3xyLqGZsBWPs5tAb44n6Ooz28">
+</div>
+<nav class="hidden lg:flex items-center h-full gap-stack-md">
+<a class="font-button-text text-button-text text-vault-navy border-b-2 border-vault-navy pb-1 transition-opacity opacity-90" href="#">Wholesale Inventory</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-vault-navy transition-colors" href="#">Home</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-vault-navy transition-colors" href="#">Services</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-vault-navy transition-colors" href="#">Financing</a>
+</nav>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex items-center bg-white rounded-full px-4 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-[20px] mr-2 text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-button-text font-button-text w-32 md:w-48 placeholder:text-on-surface-variant text-on-surface" placeholder="Search SKU..." type="text">
+</div>
+<div class="flex gap-stack-sm items-center">
+<button class="bg-accent-gold text-vault-navy px-4 py-2 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all whitespace-nowrap hidden sm:block">Schedule Free Measure</button>
+
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-highest rounded-full transition-colors text-on-surface lg:hidden" id="mobile-menu-trigger" style="transform: scale(1);">menu</button></div>
+</div>
+</div>
+<!-- Responsive Mobile Drawer Overlay -->
+<div class="fixed inset-0 z-[60] bg-black/50 lg:hidden open" id="mobile-drawer-overlay">
+<!-- Drawer Content -->
+<div class="fixed inset-y-0 left-0 w-full max-w-[300px] bg-white shadow-xl flex flex-col open" id="mobile-drawer">
+<div class="flex items-center justify-between p-4 border-b border-outline-variant">
+<img alt="Wholesale Vault Logo" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yWD5pzJe83HB1Ruke7OAMtcQmUhfUwDieNKQQONLCFh1J7fv0ROD_8SGOyvy1MOo1JJD79_7hYTygXhBaQNpO1xQuI5srs17YOgt5lmLVBwYqm54KxQlm_CBM_Z07t78Ulw8CU8YalqbSZmGd4D4YxUiqFxusQ9ATPApyIu3rz477bFrol2UO65tVB18_rg1iTsVvIVwgQ7KpH6Yw7NTZjoGpE-QM7wijLQyD7GrW2U15Nm4ku3xyLqGZsBWPs5tAb44n6Ooz28">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-low rounded-full transition-colors" id="mobile-menu-close">close</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4">
+<div class="px-4 mb-4">
+<div class="flex items-center bg-surface-container-low rounded-lg px-3 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-[20px] mr-2 text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-button-text font-button-text w-full placeholder:text-on-surface-variant text-on-surface" placeholder="Search SKU..." type="text">
+</div>
+</div>
+<div class="flex flex-col">
+<a class="px-6 py-4 font-button-text text-button-text text-vault-navy bg-surface-container-low border-l-4 border-vault-navy" href="#">Wholesale Inventory</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Home</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Services</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Reviews</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Financing</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Room Visualizer</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">About Us</a>
+<a class="px-6 py-4 font-button-text text-button-text text-on-surface-variant hover:text-vault-navy hover:bg-surface-container-low transition-colors" href="#">Contact</a>
+</div>
+</nav>
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest">
+<button class="w-full bg-accent-gold text-vault-navy px-4 py-3 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Schedule Free Measure</button>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-stack-lg">
+<!-- Hero Section -->
+<section class="relative h-[400px] flex items-center overflow-hidden bg-vault-navy text-white">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-vault-navy via-vault-navy/80 to-transparent z-10"></div>
+<img alt="Wholesale Flooring Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuU1YcBQh-AcsQJlt85OyzhDaWWHallZ8f9QWL8wWUwqdh5Ei_OOLTKBf1cYiidtKu0xyGLx4FGYCNwqh72e7aaqQP9AX-9I0cHFbvDfTYq41v9qIwQQp1IQlgU1yc6AofqYbT1WalrK0FUnCUl8twe2UDbM4J2P4azk-bFFUG69fZ7L0cCleA4xw0_Efjvr8uzRPdfSzAnFyHGUrBRaMdiT8qdjWzVrtGXSWrmqjHHvaqEC3PexDC-cA">
+</div>
+<div class="relative z-20 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-2xl">
+<span class="inline-block bg-accent-gold text-vault-navy font-button-text text-button-text px-3 py-1 rounded-sm mb-stack-md uppercase tracking-wider">Professional Grade</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-stack-sm">Quality Flooring at Wholesale Prices.</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-stack-lg">Direct access to premium hardwood, laminate, and vinyl inventory for contractors and property managers. No middlemen, just volume pricing.</p>
+<div class="flex flex-col sm:flex-row gap-stack-md">
+<button class="bg-accent-gold text-vault-navy px-stack-lg py-3 rounded-lg font-button-text text-button-text shadow-md hover:opacity-90 transition-opacity">Request Quick Quote</button>
+<button class="border border-white/30 hover:bg-white/10 px-stack-lg py-3 rounded-lg font-button-text text-button-text transition-colors">View All Inventory</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Filter -->
+<section class="bg-surface-container-low py-stack-md border-b border-outline-variant overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-stack-lg overflow-x-auto hide-scrollbar py-2">
+<span class="font-button-text text-button-text text-on-surface-variant uppercase shrink-0">Featured Brands:</span>
+<div class="flex gap-stack-lg items-center whitespace-nowrap">
+<div class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full hover:shadow-sm transition-shadow cursor-pointer">
+<span class="font-headline-md text-headline-md text-vault-navy">SHAW</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full hover:shadow-sm transition-shadow cursor-pointer">
+<span class="font-headline-md text-headline-md text-vault-navy">MOHAWK</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full hover:shadow-sm transition-shadow cursor-pointer">
+<span class="font-headline-md text-headline-md text-vault-navy">BRUCE</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full hover:shadow-sm transition-shadow cursor-pointer">
+<span class="font-headline-md text-headline-md text-vault-navy">COREtec</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full hover:shadow-sm transition-shadow cursor-pointer">
+<span class="font-headline-md text-headline-md text-vault-navy">PERGO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Catalog Area -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop mt-stack-lg">
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 shrink-0" id="sidebar-filter">
+<div class="bg-white border border-outline-variant rounded-xl p-stack-md sticky top-20">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md">Filters</h2>
+<button class="text-action-blue font-button-text text-button-text">Reset</button>
+</div>
+<!-- Material -->
+<div class="mb-stack-lg">
+<label class="block font-button-text text-button-text mb-stack-sm">Material Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline text-vault-navy focus:ring-vault-navy" type="checkbox">
+<span class="font-body-sm text-body-sm group-hover:text-vault-navy transition-colors">Hardwood</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded border-outline text-vault-navy focus:ring-vault-navy" type="checkbox">
+<span class="font-body-sm text-body-sm group-hover:text-vault-navy transition-colors">Laminate</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline text-vault-navy focus:ring-vault-navy" type="checkbox">
+<span class="font-body-sm text-body-sm group-hover:text-vault-navy transition-colors">Luxury Vinyl Plank</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline text-vault-navy focus:ring-vault-navy" type="checkbox">
+<span class="font-body-sm text-body-sm group-hover:text-vault-navy transition-colors">Tile &amp; Stone</span>
+</label>
+</div>
+</div>
+<!-- Price Range Slider -->
+<div class="mb-stack-lg">
+<div class="flex justify-between items-center mb-stack-sm">
+<label class="font-button-text text-button-text">Price Range (sq ft)</label>
+<span class="font-label-code text-label-code text-vault-navy">$1.50 - $8.00</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-vault-navy" max="10" min="0" step="0.5" type="range">
+</div>
+<!-- Square Footage -->
+<div class="mb-stack-lg">
+<label class="block font-button-text text-button-text mb-stack-sm">Min. Availability (sq ft)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 font-label-code text-label-code focus:ring-2 focus:ring-vault-navy focus:border-transparent outline-none" placeholder="500" type="number">
+<span class="absolute right-3 top-2.5 text-on-surface-variant font-label-code text-label-code">SQ FT</span>
+</div>
+</div>
+<!-- Location -->
+<div class="mb-stack-lg">
+<label class="block font-button-text text-button-text mb-stack-sm">Showroom Location</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 font-body-sm text-body-sm focus:ring-2 focus:ring-vault-navy outline-none">
+<option>All Locations</option>
+<option>Largo, FL</option>
+<option>Dunkirk, MD</option>
+</select>
+</div>
+<button class="w-full bg-vault-navy text-white py-3 rounded-lg font-button-text text-button-text hover:bg-vault-navy/90 transition-colors">Apply Filters</button>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<div class="flex-1" id="product-grid-container">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-stack-lg gap-stack-md">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg font-button-text text-button-text text-vault-navy hover:bg-surface-container-low transition-colors shadow-sm" id="toggle-filters" style="transform: scale(1);">
+<span class="material-symbols-outlined">filter_list</span>
+<span class="">Toggle Filters</span>
+</button>
+<div class="font-body-lg text-body-lg text-on-surface-variant">
+            Showing <span class="font-bold text-on-surface">248</span> wholesale flooring options
+          </div>
+</div>
+<div class="flex items-center gap-stack-md w-full md:w-auto">
+<span class="font-button-text text-button-text whitespace-nowrap">Sort By:</span>
+<select class="bg-transparent border-none focus:ring-0 font-button-text text-button-text text-vault-navy cursor-pointer">
+<option>Newest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Stock: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Dynamic Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter lg:grid-cols-3" id="grid-element"><!-- Product Card 1: Hardwood -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48"><img alt="American Harvest Oak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLsyWD2g6O-kOyLbvqpX3XZlHmGcveV4sm711_bbN-t9IdWm1O8X6n4-yqw9P7tX78XVjMCQv0Mk-bZDfhxINt6RxFwr7UG_wF4ycoj7ey0_rOaAI7MfStewtLVcLtFKWskIvkBYoxfcydJunIqLWNl6eQMMWK24W_96mcxleELjCFkiv9Z1AlH8AYqoN8Kp0LEfACbdwS3rPwPfkNhrhEHoRF2ARgUozlp0w_T9v_nQvimO5nuucny4X7s" style="object-fit: cover; object-position: center bottom;"><div class="absolute top-3 left-3 flex gap-2"><span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">In Stock</span><span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Hardwood</span></div></div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">American Harvest Oak</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: HW-OAK-2211</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">1,250 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$4.50<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 2: Laminate -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Siberian Birch Plank" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvZ2qgn79CuQxZAtXKrWauGwBCEZgnaqOvECLTyiLGwBhD2pvlWID6TCpy0VTFDsVljbx-F8gpro8hKA7w1z1yR824LGYqoHdyyTjmBW-YBClLU4GrNIKCi6Kx7ZyR1W5EH16EjutpnicaQPWijoailnhg-J9onKgKH4z2o9LsyANZGsMaTQoBfzIIJjkRxG6MvO6vdvvmtFv38Oq3-uGU6rcvl74-XrXBtCeVP9N4HSz081dFUHXtscQo" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Low Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Laminate</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Siberian Birch Plank</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: LM-BIR-1044</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">450 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$2.25<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 3: Vinyl -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Coastal Grey LVP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuHAMWenT2ykREBerdTSnaMBi2FkSXL1zL1x9oH2s8Hd7ecYBF2iCVRSzlnJukITCSYOtPsu-jiLzFK3CHZFL4Wmjdo_8DVOPfJ4ZRBPaCCvNmfbgPNdLBf3AowHATbui3EXnM5YREYpkxpwctdd8YxeHH12snsRowdwKiKxt7JANT6B7EOr8bOD09y7xZzNGds0b4mGolDFPt8UVjRMt0DRsfCWXlSviS6UBlj1Oi0laYwasEq3DYdpA" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Special Order</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Vinyl</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Coastal Grey LVP</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: VP-CL-3090</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">5,000+ sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$3.10<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 4: Hardwood -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Rustic Walnut Plank" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLufnT4uQAMsjoRIBiuAfYbRrNk9YwjZ_x8eItJI9I4CcFSmyUjQAXULsFFgN_b1JSRgJ-0ud4UPBDGNH0QAg9_gBhw6nMOcNzlxm6EwZ2j85yuoVc5NkM0BXOic5k3kJXqrPIok346UO8H7yL8cA4ugNWS1-Cv0-H3JI2Y3sXM67RJ8x7e4ROez9uv4rP3jccKrRKwndmJRjuoVyfJsJBhO2MTySF244sNzw9Js0BEFnUtfz2fZpzVRzQ" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">In Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Hardwood</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Rustic Walnut Plank</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: HW-WAL-4422</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">800 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$6.25<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 5: Laminate -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Arctic Pine Wide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuR_pkMI45bQRhXjqVGUsDufT573RovpU0KzqaRRPM0nAZOiNBSKcibBs4g7o2XC7UmH6XzB2i1ZZzNtT3Ev7nKBmuqP3zKnzf6lHmOeA6GaAXrUkVland4_Nki9V5X5OQn4-i7fMuVU1uokuyFzMdc9aV4F3E0PEZxWRu23TT1WtqDrF1GpoRqRycZ2xBri7LTPVlWCZLfcXbRL-_hxzLzSZ9lDWA3TFZAide7G_Vfc4yLMJ5i5hfW9-E" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">In Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Laminate</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Arctic Pine Wide</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: LM-PNE-5500</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">2,100 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$1.95<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 6: Vinyl -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Urban Slate LVP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvgocKbPBPxB8WPgeq-GOJISNFWBHHjMRP4DYXOBSAdLuanEjSR3v7Fq30bZd4v3DjFtDX3N2zGhRt7XgFClfpVhmOGm-ICRI3SoobBa9UauNU7YG194-zUjjrXc_CwBknKBQhUG_bn051iC-47z5mzFxG9JW05l4yGzFVPGPuq86TE8lbViSD_A9_u5mtKUie4WKyMSL6IJgoUOWM8r_BICLnnM-bq6AFEV3de8rASmUA3XMLqw8GiEHQ" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Low Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Vinyl</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Urban Slate LVP</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: VP-SL-8811</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">320 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$3.45<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 7: Hardwood -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Espresso Maple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvjQoT_e4TNGt7lhSh5QUYbEMb3lPa2YSe1VgkduxpjXG3-mjwZS3_9R0JS6nABuCKNOc-B1f4dP1Fd1F7UtE0FN6XdJpxuikDlAnEFDed8IyDMoeEJmZe0mDje3faoQB9L7xh7aY4mTeW06_vrqaj8qgusCCeVS8nCcAnOANrr3LWfu8roa5ukz42Vk41peTNy6ZHC1IHJltlzzmWi-hrjD4IH0E166FQLsxgc9cVUYaHkQu8l0r9_fQ" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">In Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Hardwood</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Espresso Maple</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: HW-MPL-9900</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">1,500 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$5.75<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 8: Laminate -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Weathered Oak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLtE7CYsHOEfagDFo7jVrgPJqaBbBLHUwcwm0Bf-DOHzaur1CDVgBMqkChfZJy97B5qlpW3POyig5vp5-Nk79Mmk1JPRQPvSbNRsemkHN3NOvAeoqyE19vMuNL_r5WLdMQIYcydBqV0zL5QiJhuZlURgYuivDy3oPJwGCnxlBlZqavjEnMkAlkFf7WqNoVyIsohilFbFSm1YWSQz_L-terqZ87EXepKvP5M4gZuP5zL2fzXFObGoEqQJOUs" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">In Stock</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Laminate</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Weathered Oak</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: LM-OAK-3344</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">3,000 sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$2.10<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div>
+
+<!-- Product Card 9: Vinyl -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow group flex flex-col transition-all duration-500 opacity-100 translate-y-0">
+<div class="relative overflow-hidden aspect-video bg-surface-container-highest h-48">
+<img alt="Desert Sand LVP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLsHHFjLTjp-s7oGRGYLMi2iC9jRr3UoJYFUrt9irVrKaMGYK1IZumEpUHYB9oRmHFn8b3wY02uXgZxsaNUqC8t_fER9z1J__NTTv9hHSA_N98AYfPoMjk03sWTBpPhMG8DvzIRvoRn4c_9Ph_TuYxNJp593idLqdKme3ePJvpfUZBuSfOqswP_Eyp2p2IWTUpAAMo3c3GryvGUVp_xx8lJfTM2tGIC588I4wpu6vC49m7_xkNEJDBHkvAg" style="object-fit: cover; object-position: center bottom;">
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Special Order</span>
+<span class="bg-white/90 backdrop-blur-sm text-vault-navy text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Vinyl</span>
+</div>
+</div>
+<div class="p-stack-md flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-vault-navy mb-1">Desert Sand LVP</h3>
+<div class="font-label-code text-label-code text-on-surface-variant mb-stack-md">SKU: VP-DS-7722</div>
+<div class="grid grid-cols-2 gap-stack-sm mb-stack-lg mt-auto">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Availability</div>
+<div class="font-label-code text-body-lg font-semibold">10,000+ sq ft</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Wholesale</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold">$2.85<span class="text-sm font-normal text-on-surface-variant">/sf</span></div>
+</div>
+</div>
+<button class="w-full bg-accent-gold text-vault-navy py-2.5 rounded-lg font-button-text text-button-text shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">Request Quick Quote</button>
+</div>
+</div></div>
+<!-- Pagination -->
+<div class="mt-stack-lg flex justify-center items-center gap-stack-md">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container transition-colors disabled:opacity-50">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-10 h-10 rounded bg-vault-navy text-white font-button-text text-button-text">1</button>
+<button class="w-10 h-10 rounded hover:bg-surface-container font-button-text text-button-text">2</button>
+<button class="w-10 h-10 rounded hover:bg-surface-container font-button-text text-button-text">3</button>
+<span class="px-2 self-center">...</span>
+<button class="w-10 h-10 rounded hover:bg-surface-container font-button-text text-button-text">12</button>
+</div>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-8 mt-auto bg-surface-container-highest dark:bg-surface-container border-t border-border-subtle flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-stack-md">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-md text-headline-md text-vault-navy mb-1">Wholesale Vault</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Wholesale Vault by Choice Floors &amp; Stairways</div>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-action-blue underline transition-all" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-action-blue underline transition-all" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-action-blue underline transition-all" href="#">Contact Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-action-blue underline transition-all" href="#">Management Login</a></div>
+<div class="flex gap-stack-md">
+<span class="material-symbols-outlined text-vault-navy cursor-pointer">share</span>
+<span class="material-symbols-outlined text-vault-navy cursor-pointer">map</span>
+</div>
+</footer>
+<script>
+    // Navigation Drawer Logic
+    const menuTrigger = document.getElementById('mobile-menu-trigger');
+    const menuClose = document.getElementById('mobile-menu-close');
+    const drawerOverlay = document.getElementById('mobile-drawer-overlay');
+    const drawer = document.getElementById('mobile-drawer');
+
+    function openMenu() {
+      drawerOverlay.classList.add('open');
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      drawerOverlay.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuTrigger.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    drawerOverlay.addEventListener('click', (e) => {
+      if (e.target === drawerOverlay) closeMenu();
+    });
+
+    // Sidebar Toggle Logic
+    const toggleBtn = document.getElementById('toggle-filters');
+    const sidebar = document.getElementById('sidebar-filter');
+    const gridElement = document.getElementById('grid-element');
+    let isCollapsed = false;
+
+    if (toggleBtn && sidebar && gridElement) {
+      toggleBtn.addEventListener('click', () => {
+        isCollapsed = !isCollapsed;
+        
+        if (isCollapsed) {
+          sidebar.classList.add('sidebar-collapsed');
+          gridElement.classList.remove('lg:grid-cols-3');
+          gridElement.classList.add('lg:grid-cols-4');
+        } else {
+          sidebar.classList.remove('sidebar-collapsed');
+          gridElement.classList.remove('lg:grid-cols-4');
+          gridElement.classList.add('lg:grid-cols-3');
+        }
+      });
+    }
+
+    // Micro-interactions for buttons
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('mousedown', () => {
+        button.style.transform = 'scale(0.98)';
+      });
+      button.addEventListener('mouseup', () => {
+        button.style.transform = 'scale(1)';
+      });
+    });
+
+    // Intersection Observer for fade-in animations on cards
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('#grid-element > div').forEach(card => {
+      card.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+      observer.observe(card);
+    });
+  </script>
+
+
+
+
+
+
+</body></html>
